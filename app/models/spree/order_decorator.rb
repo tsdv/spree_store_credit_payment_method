@@ -1,7 +1,5 @@
 module SpreeStoreCredits::OrderDecorator
-  def self.included(base)
-    base.state_machine.before_transition to: :confirm, do: :add_store_credit_payments
-    base.state_machine.after_transition to: :confirm, do: :create_gift_cards
+  extend ActiveSupport::Concern
 
   included do
     Spree::Order.state_machine.before_transition to: :confirm, do: :add_store_credit_payments
