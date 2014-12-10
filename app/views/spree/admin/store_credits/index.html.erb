@@ -31,7 +31,7 @@
             <span><%= store_credit.category_name %></span>
           </td>
           <td>
-            <span><%= store_credit.created_by_email %></span>
+            <span><%= store_credit.created_by_email if store_credit.created_by %></span>
           </td>
           <td class='align-center'>
             <span><%= l store_credit.created_at.to_date %></span>
