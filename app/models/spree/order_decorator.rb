@@ -40,6 +40,7 @@ module SpreeStoreCredits::OrderDecorator
         user.store_credits.order_by_priority.each do |credit|
           break if remaining_total.zero?
           next if credit.amount_remaining.zero?
+          next unless credit.valid?
 
           amount_to_take = store_credit_amount(credit, remaining_total)
           create_store_credit_payment(payment_method, credit, amount_to_take)
