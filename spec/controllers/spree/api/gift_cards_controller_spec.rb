@@ -26,7 +26,10 @@ describe Spree::Api::GiftCardsController do
     end
 
     context "the current api user is authenticated" do
-      stub_api_controller_authentication!
+      before do
+        stub_authentication!
+      end
+      let(:current_api_user) { create(:user) }
 
       let(:parsed_response) { HashWithIndifferentAccess.new(JSON.parse(response.body)) }
 
@@ -68,8 +71,7 @@ describe Spree::Api::GiftCardsController do
         end
 
         it 'redeems the gift card' do
-          Spree::VirtualGiftCard.stub(:active_by_redemption_code).and_return(gift_card)
-          gift_card.should_receive(:redeem).with(api_user)
+          expect_any_instance_of(Spree::VirtualGiftCard).to receive(:redeem).with(current_api_user)
           subject
         end
 
