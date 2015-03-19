@@ -61,6 +61,10 @@ module SpreeStoreCredits::OrderDecorator
     end
     alias_method :covered_by_store_credit, :covered_by_store_credit?
 
+    def could_use_store_credit?
+      total_available_store_credit > 0
+    end
+
     def total_available_store_credit
       return 0.0 unless user
       user.total_available_store_credit
