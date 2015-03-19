@@ -1,7 +1,7 @@
 module SpreeStoreCredits::OrderDecorator
   def self.included(base)
-    base.state_machine.before_transition to: :confirm, do: :add_store_credit_payments
-    base.state_machine.after_transition to: :complete, do: :send_gift_card_emails
+    # base.state_machine.before_transition to: :confirm, do: :add_store_credit_payments
+    # base.state_machine.after_transition to: :complete, do: :send_gift_card_emails
 
     base.has_many :gift_cards, through: :line_items
 
@@ -9,10 +9,10 @@ module SpreeStoreCredits::OrderDecorator
   end
 
   module InstanceMethods
-    def finalize!
-      create_gift_cards
-      super
-    end
+    # def finalize!
+    #   create_gift_cards
+    #   super
+    # end
 
     def create_gift_cards
       line_items.each do |item|
