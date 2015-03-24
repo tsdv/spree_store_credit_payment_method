@@ -45,6 +45,10 @@ class Spree::StoreCredit < ActiveRecord::Base
     amount - amount_used - amount_authorized
   end
 
+  def used_up?
+    amount_remaining <= 0
+  end
+
   def authorize(amount, order_currency, options={})
     authorization_code = options[:action_authorization_code]
     if authorization_code
