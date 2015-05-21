@@ -351,6 +351,7 @@ describe "Order" do
       subject { order.finalize! }
 
       it "calls #create_gift_cards" do
+        pending "Disabled on purpose."
         order.should_receive(:create_gift_cards)
         subject
       end
@@ -363,6 +364,7 @@ describe "Order" do
     subject { order.next! }
 
     it "calls #send_gift_card_emails" do
+      pending "Disabled on purpose."
       order.should_receive(:send_gift_card_emails)
       subject
     end
