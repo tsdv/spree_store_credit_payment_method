@@ -1,0 +1,5 @@
+bundler_args: --without development production --quiet
+script:
+  - RSPEC_RETRY_COUNT=2 bundle exec rake
+rvm:
+  - 2.1.5
