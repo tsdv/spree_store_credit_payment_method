@@ -44,6 +44,13 @@ describe "Order" do
         Spree::VirtualGiftCard.should_receive(:create!).exactly(3).times.with(amount: line_item.price, currency: line_item.currency, purchaser: order.user, line_item: line_item)
         subject
       end
+
+      context "create_gift_cards runs twice" do
+        it 'does not create duplicate gift cards' do
+          order.create_gift_cards
+          expect { subject }.to_not change { Spree::VirtualGiftCard.count }
+        end
+      end
     end
 
     context "the line item is not a gift card" do

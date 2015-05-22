@@ -16,8 +16,10 @@ module SpreeStoreCredits::OrderDecorator
 
     def create_gift_cards
       line_items.each do |item|
+        next unless item.gift_card?
+        next if item.gift_cards.count >= item.quantity
         item.quantity.times do
-          Spree::VirtualGiftCard.create!(amount: item.price, currency: item.currency, purchaser: user, line_item: item) if item.gift_card?
+          Spree::VirtualGiftCard.create!(amount: item.price, currency: item.currency, purchaser: user, line_item: item)
         end
       end
     end
