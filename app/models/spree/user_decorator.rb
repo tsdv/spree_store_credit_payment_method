@@ -1,6 +1,8 @@
-module Spree::UserDecorator
+# NOTE: Remove for 3-1-stable
+
+module SpreeStoreCredits::UserDecorator
   def self.included(base)
-    base.has_many :store_credits, -> { includes(:credit_type) }
+    base.has_many :store_credits, -> { includes(:credit_type) }, foreign_key: "user_id", class_name: "Spree::StoreCredit"
     base.has_many :store_credit_events, through: :store_credits
 
     base.prepend(InstanceMethods)
@@ -13,4 +15,4 @@ module Spree::UserDecorator
   end
 end
 
-Spree::User.include(Spree::UserDecorator)
+Spree::User.include SpreeStoreCredits::UserDecorator

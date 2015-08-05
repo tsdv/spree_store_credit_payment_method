@@ -1,5 +1,7 @@
+# NOTE: Remove for 3-1-stable
+
 module Spree
-  class StoreCreditEvent < ActiveRecord::Base
+  class StoreCreditEvent < Spree::Base
     acts_as_paranoid
 
     belongs_to :store_credit

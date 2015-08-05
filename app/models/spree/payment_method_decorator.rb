@@ -1,3 +1,5 @@
+# NOTE: Remove for 3-1-stable
+
 module SpreeStoreCredits::PaymentMethodDecorator
 
   def self.included(base)

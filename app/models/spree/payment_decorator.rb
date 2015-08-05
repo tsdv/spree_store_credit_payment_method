@@ -1,6 +1,8 @@
+# NOTE: Remove for 3-1-stable
+
 module SpreeStoreCredits::PaymentDecorator
   def self.included(base)
-    base.delegate :store_credit?, to: :payment_method
+    base.delegate :store_credit?, to: :payment_method, allow_nil: true
     base.scope :store_credits, -> { base.where(source_type: Spree::StoreCredit.to_s) }
     base.scope :not_store_credits, -> { base.where(base.arel_table[:source_type].not_eq(Spree::StoreCredit.to_s).or(base.arel_table[:source_type].eq(nil))) }
     base.after_create :create_eligible_credit_event

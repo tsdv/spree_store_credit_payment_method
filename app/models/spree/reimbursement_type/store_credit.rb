@@ -1,3 +1,5 @@
+# NOTE: Remove for 3-1-stable
+
 class Spree::ReimbursementType::StoreCredit < Spree::ReimbursementType
   extend Spree::ReimbursementType::ReimbursementHelpers
 

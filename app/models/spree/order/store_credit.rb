@@ -1,3 +1,5 @@
+# NOTE: Remove for 3-1-stable
+
 module Spree
   class Order < Spree::Base
     module StoreCredit

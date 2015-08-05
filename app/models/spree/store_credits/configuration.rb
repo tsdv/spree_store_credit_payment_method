@@ -1,3 +1,5 @@
+# NOTE: Remove in favor of Spree::AppConfiguration
+
 module Spree::StoreCredits::Configuration
   class << self
     require 'ostruct'

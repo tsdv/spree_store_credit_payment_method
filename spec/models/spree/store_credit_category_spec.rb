@@ -5,7 +5,7 @@ describe Spree::StoreCreditCategory, :type => :model do
     subject { build(:store_credit_category, name: category_name).non_expiring? }
     
     context "non-expiring type store credit" do
-      let(:category_name) { Spree::StoreCredits::Configuration.non_expiring_credit_types.first }
+      let(:category_name) { "Gift Card" }
 
       it "returns true" do
         expect(subject).to be true
