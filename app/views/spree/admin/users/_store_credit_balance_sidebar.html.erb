@@ -1,2 +1,4 @@
-<dt><%= Spree.t("admin.user.store_credit") %>:</dt>
-  <dd><%= Spree::Money.new(@user.total_available_store_credit) %></dd>
+<tr>
+  <td><%= Spree.t('admin.user.store_credits') %>:</td>
+  <td><%= Spree::Money.new(@user.total_available_store_credit) %></td>
+</tr>
