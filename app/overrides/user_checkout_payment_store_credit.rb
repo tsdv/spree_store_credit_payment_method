@@ -1,7 +1,8 @@
+# NOTE: Remove for 3-1-stable
+
 Deface::Override.new(
   virtual_path: 'spree/checkout/_payment',
   name: 'insert_store_credit_instructions',
-  insert_before: 'erb:contains("@payment_sources.present?")',
-  partial: 'spree/checkout/payment_through_store_credit'
+  insert_before: '#payment-method-fields',
+  partial: 'spree/checkout/payment/storecredit'
 )
-
