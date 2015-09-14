@@ -1,6 +1,6 @@
 module SpreeStoreCredits::AdminPaymentsControllerDecorator
   def self.prepended(base)
-    base.before_action :load_user_store_credits, only: :new
+    base.before_action :load_user_store_credits, only: [:new, :index]
     base.before_action :handle_store_credit_create, only: :create
   end
 
