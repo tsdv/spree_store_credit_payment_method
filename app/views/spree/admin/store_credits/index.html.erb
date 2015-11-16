@@ -25,7 +25,7 @@
           <td><%= store_credit.display_amount.to_html %></td>
           <td><%= store_credit.display_amount_used.to_html %></td>
           <td><%= store_credit.category_name %></td>
-          <td><%= store_credit.created_by_email %></td>
+          <td><%= store_credit.created_by_email unless store_credit.created_by.nil? %></td>
           <td><%= l store_credit.created_at.to_date %></td>
           <td class="actions actions-2 text-center" data-hook="admin_store_credits_index_row_actions">
             <% if store_credit.amount_used.zero? %>
