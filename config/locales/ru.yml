@@ -10,6 +10,7 @@ ru:
       spree/store_credit:
         amount_used: "Использовано"
   spree:
+    credit_refund: Возврат по заказу %{order}.
     select_a_store_credit_reason: "Выберите причину создания кредита"
     store_credit:
       credit: "Кредит"

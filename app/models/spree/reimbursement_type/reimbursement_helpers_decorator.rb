@@ -12,7 +12,7 @@ Spree::ReimbursementType::ReimbursementHelpers.module_eval do
       amount: unpaid_amount,
       category: category,
       created_by: Spree::StoreCredit.default_created_by,
-      memo: "Refund for uncreditable payments on order #{reimbursement.order.number}",
+      memo: Spree.t(:credit_refund, order: reimbursement.order.number),
       currency: reimbursement.order.currency
     }
   end
