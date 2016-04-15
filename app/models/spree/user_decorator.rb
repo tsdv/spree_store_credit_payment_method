@@ -3,7 +3,7 @@
 module SpreeStoreCredits::UserDecorator
   def self.included(base)
     base.has_many :store_credits, -> { includes(:credit_type) }, foreign_key: "user_id", class_name: "Spree::StoreCredit", dependent: :nullify
-    base.has_many :store_credit_events, through: :store_credits, dependent: :nullify
+    base.has_many :store_credit_events, through: :store_credits
 
     base.prepend(InstanceMethods)
   end
